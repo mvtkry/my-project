@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniEvents Dashboard - {% block title %}{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/static/style.css" rel="stylesheet">
+    <script>
+        // Simple vanilla JS for mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('menu-btn');
+            const sidebar = document.getElementById('sidebar');
+            if (menuBtn && sidebar) {
+                menuBtn.addEventListener('click', function() {
+                    sidebar.classList.toggle('-translate-x-full');
+                });
+            }
+        });
+    </script>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="bg-indigo-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out z-30">
+            <div class="flex items-center justify-center space-x-2 px-4">
+                <span class="text-2xl font-extrabold">UniEvents</span>
+            </div>
+            <nav class="mt-10">
+                <a href="/dashboard" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'overview' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    📊 Dashboard
+                </a>
+                <a href="/dashboard/events" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'events' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    📅 Events
+                </a>
+                <a href="/dashboard/participants" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'participants' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    👥 Participants
+                </a>
+                <a href="/dashboard/scoring" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'scoring' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    ⚖️ Scoring
+                </a>
+                <a href="/dashboard/leaderboard" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'leaderboard' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    🏆 Leaderboard
+                </a>
+                <a href="/dashboard/single-entry" class="block py-2.5 px-4 rounded transition duration-200 {% if active_page == 'single-entry' %}bg-indigo-900{% else %}hover:bg-indigo-700{% endif %}">
+                    ✍️ Single Entry
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <button id="menu-btn" class="text-gray-600 focus:outline-none md:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm text-gray-600">Admin User</span>
+                        <img src="https://via.placeholder.com/32" alt="Profile" class="w-8 h-8 rounded-full">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto bg-gray-100 p-6">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

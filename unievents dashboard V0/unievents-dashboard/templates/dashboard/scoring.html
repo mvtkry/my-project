@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}Scoring{% endblock %}
+{% block content %}
+<div class="mb-6">
+    <h1 class="text-3xl font-semibold text-gray-800">Scoring</h1>
+    <p class="text-gray-600">Score participants for ongoing events</p>
+</div>
+
+<!-- Active Events for Scoring -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    <!-- Event Selection Card -->
+    <div class="lg:col-span-1">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-lg font-semibold mb-4">Select Event</h2>
+            <div class="space-y-3">
+                <button class="w-full text-left p-3 bg-indigo-50 border-2 border-indigo-500 rounded-lg">
+                    <p class="font-medium">Spring Hackathon</p>
+                    <p class="text-sm text-gray-600">45 participants • In progress</p>
+                </button>
+                <button class="w-full text-left p-3 hover:bg-gray-50 border rounded-lg">
+                    <p class="font-medium">Chess Tournament</p>
+                    <p class="text-sm text-gray-600">32 participants • Round 3</p>
+                </button>
+                <button class="w-full text-left p-3 hover:bg-gray-50 border rounded-lg">
+                    <p class="font-medium">Debate Finals</p>
+                    <p class="text-sm text-gray-600">16 participants • Quarter-finals</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scoring Panel -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b">
+                <h2 class="text-lg font-semibold">Spring Hackathon - Scoring</h2>
+                <p class="text-sm text-gray-500">Enter scores for each participant</p>
+            </div>
+            <div class="p-6">
+                <div class="space-y-4">
+                    <!-- Score Entry Row -->
+                    <div class="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <p class="font-medium">Alex Chen</p>
+                            <p class="text-sm text-gray-500">Team: CodeWizards</p>
+                        </div>
+                        <div class="w-32">
+                            <input type="number" placeholder="Score" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Submit</button>
+                    </div>
+
+                    <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <p class="font-medium">Jamie Smith</p>
+                            <p class="text-sm text-gray-500">Team: ByteMe</p>
+                        </div>
+                        <div class="w-32">
+                            <input type="number" placeholder="Score" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Submit</button>
+                    </div>
+
+                    <div class="flex items-center space-x-4 p-3 hover:bg-gray-50 rounded-lg">
+                        <div class="flex-1">
+                            <p class="font-medium">Taylor Wong</p>
+                            <p class="text-sm text-gray-500">Team: NullTerminators</p>
+                        </div>
+                        <div class="w-32">
+                            <input type="number" placeholder="Score" class="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-6 border-t bg-gray-50">
+                <button class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">Finalize All Scores</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Scores -->
+<div class="bg-white rounded-lg shadow">
+    <div class="px-6 py-4 border-b">
+        <h2 class="text-lg font-semibold">Recent Score Submissions</h2>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Time</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Event</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Participant</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Score</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Scored By</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <tr>
+                    <td class="px-6 py-4">2 min ago</td>
+                    <td class="px-6 py-4">Spring Hackathon</td>
+                    <td class="px-6 py-4">Alex Chen</td>
+                    <td class="px-6 py-4 font-medium">95</td>
+                    <td class="px-6 py-4">Prof. Johnson</td>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4">5 min ago</td>
+                    <td class="px-6 py-4">Chess Tournament</td>
+                    <td class="px-6 py-4">Jamie Smith</td>
+                    <td class="px-6 py-4 font-medium">88</td>
+                    <td class="px-6 py-4">Dr. Williams</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

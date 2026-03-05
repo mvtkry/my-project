@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Single Entry{% endblock %}
+{% block content %}
+<div class="mb-6">
+    <h1 class="text-3xl font-semibold text-gray-800">Single Entry</h1>
+    <p class="text-gray-600">Quickly add a single score or participant entry</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Quick Score Entry Form -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-lg shadow">
+            <div class="px-6 py-4 border-b">
+                <h2 class="text-lg font-semibold">Quick Score Entry</h2>
+            </div>
+            <div class="p-6">
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Select Event</label>
+                            <select class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option>Spring Hackathon</option>
+                                <option>Chess Tournament</option>
+                                <option>Debate Finals</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Participant</label>
+                            <select class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                                <option>Alex Chen</option>
+                                <option>Jamie Smith</option>
+                                <option>Taylor Wong</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Score</label>
+                        <input type="number" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter score">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Notes (Optional)</label>
+                        <textarea rows="3" class="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Add any notes about this score..."></textarea>
+                    </div>
+
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" class="px-6 py-2 border rounded-lg hover:bg-gray-50">Cancel</button>
+                        <button type="submit" class="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Submit Score</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions Sidebar -->
+    <div class="lg:col-span-1">
+        <div class="bg-white rounded-lg shadow">
+            <div class="px-6 py-4 border-b">
+                <h2 class="text-lg font-semibold">Quick Actions</h2>
+            </div>
+            <div class="p-6 space-y-4">
+                <button class="w-full text-left p-3 border rounded-lg hover:bg-gray-50">
+                    <p class="font-medium">➕ Add New Participant</p>
+                    <p class="text-sm text-gray-500">Register a new participant</p>
+                </button>
+                <button class="w-full text-left p-3 border rounded-lg hover:bg-gray-50">
+                    <p class="font-medium">📋 Create New Event</p>
+                    <p class="text-sm text-gray-500">Set up a new event</p>
+                </button>
+                <button class="w-full text-left p-3 border rounded-lg hover:bg-gray-50">
+                    <p class="font-medium">📊 Bulk Import Scores</p>
+                    <p class="text-sm text-gray-500">Upload CSV file</p>
+                </button>
+                <button class="w-full text-left p-3 border rounded-lg hover:bg-gray-50">
+                    <p class="font-medium">📈 Generate Report</p>
+                    <p class="text-sm text-gray-500">Export leaderboard</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Recent Single Entries -->
+        <div class="bg-white rounded-lg shadow mt-6">
+            <div class="px-6 py-4 border-b">
+                <h2 class="text-lg font-semibold">Recent Entries</h2>
+            </div>
+            <div class="divide-y">
+                <div class="p-4">
+                    <p class="text-sm font-medium">Alex Chen - 95 pts</p>
+                    <p class="text-xs text-gray-500">Spring Hackathon • 2 min ago</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-sm font-medium">Jamie Smith - 88 pts</p>
+                    <p class="text-xs text-gray-500">Chess Tournament • 5 min ago</p>
+                </div>
+                <div class="p-4">
+                    <p class="text-sm font-medium">Taylor Wong - 92 pts</p>
+                    <p class="text-xs text-gray-500">Debate Finals • 12 min ago</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
