@@ -1,18 +1,28 @@
-name: Build
+name: Build EXE
 
 on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Zip files
-        run: zip -r project.zip .
-
-      - uses: actions/upload-artifact@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
         with:
-          name: project
-          path: project.zip
+          python-version: '3.11'
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller
+
+      - name: Build EXE
+        run: pyinstaller --onefile main.py
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: program
+          path: dist/*.exe 
